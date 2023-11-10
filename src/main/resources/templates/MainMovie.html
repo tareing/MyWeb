@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/MainMovie.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100&family=Libre+Franklin:wght@100;600&family=Linefont:wght@1000&family=Reem+Kufi+Fun&display=swap"
+          rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9b3b71a088.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<a href="/main">
+    <h1>Kmovie</h1>
+</a>
+
+<video id="video-background" autoplay muted loop>
+    <source src="sea_-_13704 (540p).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+
+<div class="circle-box">
+    <div class="circle-container" onmouseover="stopRotate()" onmouseout="startRotate()">
+        <p>미완성입니다..<p>&#128064;</p>진행도 30%..</p>
+        <p>메인화면은 상단 Kmovie를 눌러주세요.</p>
+        <div class="circle circle1">
+            <img src="https://cdn.pixabay.com/photo/2012/06/08/06/19/clouds-49520_1280.jpg" alt=""
+                 style="border-radius: 50%; width: 70px; height: 70px;">
+        </div>
+        <div class="circle circle2">
+            <img src="https://cdn.pixabay.com/photo/2018/06/02/17/50/forest-3448818_1280.jpg" alt=""
+                 style="border-radius: 50%; width: 70px; height: 70px;">
+        </div>
+        <div class="circle circle3">
+            <img src="https://cdn.pixabay.com/photo/2015/03/30/12/37/jellyfish-698521_1280.jpg" alt=""
+                 style="border-radius: 50%; width: 70px; height: 70px;">
+        </div>
+        <div class="circle circle4">
+            <img src="https://cdn.pixabay.com/photo/2017/11/07/00/07/fantasy-2925250_1280.jpg" alt=""
+                 style="border-radius: 50%; width: 70px; height: 70px;">
+        </div>
+        <div class="circle circle5">
+            <img src="https://cdn.pixabay.com/photo/2018/04/06/00/25/trees-3294681_1280.jpg" alt=""
+                 style="border-radius: 50%; width: 70px; height: 70px;">
+        </div>
+        <div class="circle circle6">
+            <img src="https://cdn.pixabay.com/photo/2016/11/19/18/57/godafoss-1840758_1280.jpg" alt=""
+                 style="border-radius: 50%; width: 70px; height: 70px;">
+        </div>
+        <div class="circle circle7">
+            <img src="https://cdn.pixabay.com/photo/2016/07/22/16/29/fog-1535201_1280.jpg" alt=""
+                 style="border-radius: 50%; width: 70px; height: 70px;">
+        </div>
+        <div class="circle circle8">
+            <img src="https://cdn.pixabay.com/photo/2017/08/02/14/26/winter-landscape-2571788_1280.jpg" alt=""
+                 style="border-radius: 50%; width: 70px; height: 70px;">
+        </div>
+        <div class="circle circle9">
+            <img src="https://cdn.pixabay.com/photo/2020/02/08/14/36/trees-4830285_1280.jpg" alt=""
+                 style="border-radius: 50%; width: 70px; height: 70px;">
+        </div>
+        <div class="circle circle11">
+            <img src="https://cdn.pixabay.com/photo/2018/12/15/18/02/forest-3877365_1280.jpg" alt=""
+                 style="border-radius: 50%; width: 70px; height: 70px;">
+        </div>
+        <div class="circle circle12">
+            <img src="https://cdn.pixabay.com/photo/2011/12/14/12/21/orion-nebula-11107_1280.jpg" alt=""
+                 style="border-radius: 50%; width: 70px; height: 70px;">
+        </div>
+    </div>
+</div>
+<div class="contents">
+    <div class="category-container">
+        <div class="category-box">
+            <h3 class="category-title">Category</h3>
+        </div>
+        <ul class="menu">
+            <li><a>자연</a></li>
+            <br>
+            <li><a>멜로</a></li>
+            <br>
+            <li><a>SF/판타지</a></li>
+            <br>
+            <li><a>다큐멘터리</a></li>
+            <br>
+            <li><a>액션</a></li>
+            <br>
+            <li><a>드라마</a></li>
+            <br>
+            <li><a>공포/스릴러</a></li>
+            <br>
+            <li><a>애니메이션</a></li>
+            <br>
+        </ul>
+    </div>
+</div>
+<script>
+    var rotateContainer = document.querySelector('.circle-container');
+    var rotateContainerStyle = getComputedStyle(rotateContainer);
+
+    function stopRotate() {
+        rotateContainer.style.animationPlayState = 'paused';
+        rotateContainer.style.transform = rotateContainerStyle.transform;
+    }
+
+    function startRotate() {
+        rotateContainer.style.animationPlayState = 'running';
+    }
+
+    document.querySelectorAll('.circle-container img').forEach(function (img) {
+        img.addEventListener('click', function () {
+            // 클릭한 이미지에 'active' 클래스를 추가하거나 제거
+            img.classList.toggle('active');
+
+            // 다른 이미지의 'active' 클래스 제거
+            document.querySelectorAll('.circle-container img').forEach(function (otherImg) {
+                if (otherImg !== img && otherImg.classList.contains('active')) {
+                    otherImg.classList.remove('active');
+                }
+            });
+        });
+
+        img.addEventListener('mouseleave', function () {
+            // 마우스가 이미지를 벗어나면 'active' 클래스 제거
+            img.classList.remove('active');
+        });
+    });
+document.querySelectorAll('.circle-container img').forEach(function (img) {
+    img.addEventListener('click', function () {
+        // Move the clicked image to the center
+        img.style.transform = 'translate(-50%, -50%) scale(6)';
+
+        // Remove 'active' class from all images
+        document.querySelectorAll('.circle-container img').forEach(function (otherImg) {
+            if (otherImg !== img) {
+                otherImg.classList.remove('active');
+                otherImg.style.transform = ''; // Reset transformation for other images
+            }
+        });
+
+        // Add 'active' class to the clicked image
+        img.classList.add('active');
+    });
+
+    img.addEventListener('mouseleave', function () {
+        // Reset transformation when the mouse leaves the image, but only if it's not active
+        if (!img.classList.contains('active')) {
+            img.style.transform = '';
+        }
+    });
+});
+</script>
+</body>
+</html>

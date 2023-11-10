@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/Signin.css">
+</head>
+<body>
+<div layout:fragment="content" class="form">
+    <form th:action="@{/user/Signin}" method="post">
+        <div class="form-header">
+            <h1>로그인</h1>
+        </div>
+        <div th:if="${param.error}">
+            <div class="alert alert-danger">
+                사용자ID 또는 비밀번호를 확인해 주세요.
+            </div>
+        </div>
+        <div class="form-elements">
+            <div class="form-element">
+                <label for="username" class="form-label">사용자ID</label>
+                <input type="text" name="username" id="username" placeholder="Username">
+            </div>
+            <div class="form-element">
+                <label for="password" class="form-label">비밀번호</label>
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+            <div class="form-element">
+                <button id="submit-btn">Sign Up</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

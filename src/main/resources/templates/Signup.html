@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/Signup.css">
+</head>
+<body>
+<div class="form signup">
+    <div class="form-header">
+        <h1>회원가입</h1>
+    </div>
+    <form th:action="@{/user/Signup}" th:object="${userCreateForm}" method="post">
+        <div class="form-elements">
+            <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+            <div class="form-element">
+                <label for="username" class="form-label">사용자ID</label>
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-element">
+                <label for="password1" class="form-label">비밀번호</label>
+                <input type="password" name="password1" placeholder="Password">
+            </div>
+            <div class="form-element">
+                <label for="password2" class="form-label">비밀번호 확인</label>
+                <input type="password" name="password2" placeholder="Confirm password">
+            </div>
+            <div class="form-element">
+                <label for="email" class="form-label">이메일</label>
+                <input type="email" th:field="*{email}" name="email" placeholder="email">
+            </div>
+            <div class="form-element">
+                <button id="submit-btn">Sign Up</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
